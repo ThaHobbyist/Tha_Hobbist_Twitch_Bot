@@ -8,12 +8,18 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "dotenv": "^10.0.0",
+    "translate": "^1.4.1",
+    "twitch-auth": "^4.6.7",
+    "twitch-chat-client": "^4.6.7",
+    "uuid": "^7.0.3",
     "vue": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0"
+    "@vue/compiler-sfc": "^3.0.0",
+    "google-translate-api": "^2.3.0"
   },
   "browserslist": [
     "> 1%",
