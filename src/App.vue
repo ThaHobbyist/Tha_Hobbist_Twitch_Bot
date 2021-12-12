@@ -2,7 +2,7 @@
   <!-- <button v-if="!start" @click="startRec" class="btn">Start</button>
   <button v-if="start" @click="pauseRec" class="btn">Pause</button>
   <button v-if="start" @click="stopRec" class="btn">Stop</button> -->
-  <div class="text_box"><p class="text"> Hello {{ text }} </p></div>
+  <div class="text_box"><p class="text"> {{ text }} </p></div>
 </template>
 
 <script>
@@ -91,9 +91,6 @@ export default {
         help : {
           response: 'Type !translate <language name> and you will see english subtitles to the language that the streamer is speaking!'
         },
-        upvote : {
-          response: (user) => `User ${user} was upvoted`
-        },
         translate : {
           response: (lang) => {
             `translating from ${lang} to english`;
@@ -130,6 +127,7 @@ export default {
         if (!(command in commands)) return;
         else if (command === 'help') this.client.say(channel, 'Type !translate <language name> and you will see english subtitles to the language that the streamer is speaking!');
         else if (command === 'translate') {
+          this.client.say(channel, 'Starting Translation....');
           recognition.lang = this.tag(argument);
             this.startRec();
             console.log(argument);
@@ -140,7 +138,7 @@ export default {
               this.translateString(final_text, argument);
             });
         };
-        console.log(message)
+        
         
       });
     }

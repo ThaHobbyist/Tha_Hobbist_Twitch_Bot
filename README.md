@@ -1,19 +1,3 @@
-# overlay_sub_bot
+# Translation Twitch Bot in Vue.js
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The bot is hosted in [netlify](https://61b5b2689b749129ffb135bc--epic-almeida-e07ffe.netlify.app/). Add it as a obs browser source to use it. Currently it listens to only my twitch [channel](https://www.twitch.tv/tha_Hobbist). So to use it, it is reccommended to fork it, change the site it is listening to and host it separately. You will need keep the hosted site open so that the bot can access your microphone and translate your speech. The subtitles will be delayed and please pause for a few seconds after speaking for best results. Type **!help** in twitch chat for the command instructions. 
