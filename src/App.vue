@@ -112,7 +112,7 @@ export default {
       this.oAuthToken = process.env.VUE_APP_TWITCH_OAUTH_TOKEN;
 
       this.authProvider = new StaticAuthProvider(this.clientId, this.oAuthToken);
-      this.client = new ChatClient(this.authProvider, { channels: [ 'Tha_Hobbist' ]});
+      this.client = new ChatClient(this.authProvider, { channels: [ 'Vl0fast' ]});
 
       await this.client.connect();
 
