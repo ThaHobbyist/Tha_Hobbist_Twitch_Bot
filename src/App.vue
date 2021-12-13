@@ -2,7 +2,7 @@
   <!-- <button v-if="!start" @click="startRec" class="btn">Start</button>
   <button v-if="start" @click="pauseRec" class="btn">Pause</button>
   <button v-if="start" @click="stopRec" class="btn">Stop</button> -->
-  <div class="text_box"><p class="text"> {{ text }} </p></div>
+  <div class="text_box"><p class="text"> hello {{ text }} </p></div>
 </template>
 
 <script>
@@ -102,7 +102,6 @@ export default {
               final_text = event.results[last][0].transcript;
               console.log(final_text)
               this.translateString(final_text, lang);
-
             })
           }
         }
@@ -112,7 +111,7 @@ export default {
       this.oAuthToken = process.env.VUE_APP_TWITCH_OAUTH_TOKEN;
 
       this.authProvider = new StaticAuthProvider(this.clientId, this.oAuthToken);
-      this.client = new ChatClient(this.authProvider, { channels: [ 'Tha_Hobbist' ]});
+      this.client = new ChatClient(this.authProvider, { channels: [ 'Vl0fast' ]});
 
       await this.client.connect();
 
@@ -138,8 +137,6 @@ export default {
               this.translateString(final_text, argument);
             });
         };
-        
-        
       });
     }
   },
