@@ -2,7 +2,7 @@
   <!-- <button v-if="!start" @click="startRec" class="btn">Start</button>
   <button v-if="start" @click="pauseRec" class="btn">Pause</button>
   <button v-if="start" @click="stopRec" class="btn">Stop</button> -->
-  <div class="text_box"><p class="text"> hello {{ text }} </p></div>
+  <div class="text_box"><p class="text"> {{ text }} </p></div>
 </template>
 
 <script>
@@ -111,7 +111,7 @@ export default {
       this.oAuthToken = process.env.VUE_APP_TWITCH_OAUTH_TOKEN;
 
       this.authProvider = new StaticAuthProvider(this.clientId, this.oAuthToken);
-      this.client = new ChatClient(this.authProvider, { channels: [ 'Vl0fast' ]});
+      this.client = new ChatClient(this.authProvider, { channels: [ 'Tha_Hobbist' ]});
 
       await this.client.connect();
 
@@ -126,17 +126,24 @@ export default {
         if (!(command in commands)) return;
         else if (command === 'help') this.client.say(channel, 'Type !translate <language name> and you will see english subtitles to the language that the streamer is speaking!');
         else if (command === 'translate') {
-          this.client.say(channel, 'Starting Translation....');
-          recognition.lang = this.tag(argument);
-            this.startRec();
-            console.log(argument);
-            recognition.addEventListener('result', (event) => {
-              var last = event.results.length - 1;
-              final_text = event.results[last][0].transcript;
-              console.log(final_text)
-              this.translateString(final_text, argument);
-            });
+          if (argument === 'stop'){
+            this.stopRec();
+            this.client.say(channel, `Translation Stopped`);
+          } else{
+            this.client.say(channel, `Starting Translation to ${ argument }`);
+            recognition.lang = this.tag(argument);
+              this.startRec();
+              console.log(argument);
+              recognition.addEventListener('result', (event) => {
+                var last = event.results.length - 1;
+                final_text = event.results[last][0].transcript;
+                console.log(final_text)
+                this.translateString(final_text, argument);
+              });
+          }
+          
         };
+        
       });
     }
   },
@@ -155,4 +162,5 @@ export default {
   font-size: 40px;
   color: white;
 }
+
 </style>
