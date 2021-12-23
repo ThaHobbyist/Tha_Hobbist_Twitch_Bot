@@ -74,7 +74,7 @@ export default {
       recognition.abort();
     },
     async translateString(str, frm) {
-      const a = await translate(str, { from: frm});
+      const a = await translate(str, { from: frm, mode: "no-cors"});
       console.log('translated text:' + a);
       this.text = a;
     },
